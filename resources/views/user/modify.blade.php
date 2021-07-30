@@ -1,20 +1,68 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
+<script>
+	function validate(f) {
+		if(!f.userid.value || !f.email.value || !f.realname.value || !f.admissionyear.value) {
+			alert("빠짐 없이 입력해주세요.");
+			return false;
+		}
 
-<div class="col-md-8 col-md-offset-2">
-	<div class="panel panel-default">
-		<div class="panel-heading">
+		if(!/^\w+@\w+(\.\w+)+$/.test(f.email.value)) {
+			alert("이메일 형식을 확인해주세요.");
+			return false;
+		}
+
+		if(f.password.value != f.password_confirmation.value) {
+			alert("비밀번호를 확인해주세요.");
+			return false;
+		}
+
+		if(f.userid.value.length > 255) {
+			alert("아이디는 255자까지만 입력 가능합니다.");
+			return false;
+		}
+
+		if(f.email.value.length > 255) {
+			alert("이메일은 255자까지만 입력 가능합니다.");
+			return false;
+		}
+
+		if(!!f.password.value && f.password.value.length < 6) {
+			alert("비밀번호는 6자리 이상 가능합니다.");
+			return false;
+		}
+
+		if(f.realname.value.length > 255) {
+			alert("이름은 255자까지만 입력 가능합니다.");
+			return false;
+		}
+
+		if(f.phone.value.length > 255) {
+			alert("전화번호는 255자까지만 입력 가능합니다.");
+			return false;
+		}
+
+		if(f.admissionyear.value.length != 2) {
+			alert("입학년도는 YY 형태로 맞춰주세요.");
+			return false;
+		}
+
+		return true;
+	}
+</script>
+
+	<div class="card-section half-card">
+		<div class="card-header">
 			회원정보 수정
 		</div>
-		<div class="panel-body">
-			<form class="form-horizontal" role="form" method="POST" action="{{ url('/user/modify') }}">
+		<div class="card-content">
+			<form class="round-form" role="form" method="POST" action="{{ url('/user/modify') }}" onsubmit="return validate(this);">
 				{{ csrf_field() }}
 
 				<div class="form-group{{ $errors->has('userid') ? ' has-error' : '' }}">
 					<div class="col-md-12">
-						<label for="userid"><span style="color:green;">아이디</span></label>
-						<input id="userid" type="userid" class="form-control" value="{{ Auth::user()->userid }}" disabled>
+						<input id="userid" type="text" class="form-control" value="{{ Auth::user()->userid }}" placeholder="아이디" disabled>
 						 @if ($errors->has('userid'))
 							<span class="help-block">
 								{{ $errors->first('userid') }}
@@ -25,8 +73,7 @@
 				
 				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 					<div class="col-md-12">
-						<label for="email"><span style="color:green;">이메일</span></label>
-						<input id="email" type="email" class="form-control" name="email" value="{{  Auth::user()->email }}">
+						<input id="email" type="email" class="form-control" name="email" value="{{  Auth::user()->email }}" placeholder="이메일">
 						 @if ($errors->has('email'))
 							<span class="help-block">
 								{{ $errors->first('email') }}
@@ -35,43 +82,59 @@
 					</div>
 				</div>
 				
+				<div style="display:flex;">
+					<div class="form-group{{ $errors->has('admissionyear') ? ' has-error' : '' }}">
+						<div class="col-md-12">
+							<input id="admissionyear" name="admissionyear" type="number" class="form-control"  value="{{ Auth::user()->admissionyear }}" placeholder="입학년도 (ex 22)">
+							@if ($errors->has('admissionyear'))
+								<span class="help-block">
+									{{ $errors->first('admissionyear') }}
+								</span>
+							@endif
+						</div>
+					</div>
+					
+					<div class="form-group{{ $errors->has('realname') ? ' has-error' : '' }}">
+						<div class="col-md-12">
+							<input id="realname" name="realname" type="text" class="form-control" value="{{ Auth::user()->realname }}" placeholder="이름">
+							@if ($errors->has('realname'))
+								<span class="help-block">
+									{{ $errors->first('realname') }}
+								</span>
+							@endif
+						</div>
+					</div>
+				</div>
 				
-				<div class="form-group{{ $errors->has('realname') ? ' has-error' : '' }}">
-					<div class="col-md-12">
-						<label for="realname"><span style="color:green;">이름</span></label>
-						<input id="realname" type="realname" class="form-control" value="{{ Auth::user()->realname }}" disabled>
-						 @if ($errors->has('realname'))
-							<span class="help-block">
-								{{ $errors->first('realname') }}
-							</span>
-						@endif
+				<div style="display:flex;">
+					<div class="form-group{{ $errors->has('admissionyear') ? ' has-error' : '' }}">
+						<div class="col-md-12">
+							<input id="password" name="password" type="password" class="form-control" placeholder="비밀번호">
+							@if ($errors->has('admissionyear'))
+								<span class="help-block">
+									{{ $errors->first('password') }}
+								</span>
+							@endif
+						</div>
+					</div>
+					
+					<div class="form-group{{ $errors->has('realname') ? ' has-error' : '' }}">
+						<div class="col-md-12">
+							<input id="password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="비밀번호 확인">
+						</div>
 					</div>
 				</div>
 				
 				<div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
 					<div class="col-md-12">
-						<label for="phone">전화번호</label>
-						<input id="phone" type="phone" class="form-control" name="phone" value="{{ Auth::user()->phone }}">
+						<input id="phone" type="text" class="form-control" name="phone" value="{{ Auth::user()->phone }}" placeholder="전화번호">
 						 @if ($errors->has('phone'))
 							<span class="help-block">
 								{{ $errors->first('phone') }}
 							</span>
 						@endif
 					</div>
-				</div>
-
-				<div class="form-group{{ $errors->has('admissionyear') ? ' has-error' : '' }}">
-					<div class="col-md-12">
-						<label for="admissionyear"><span style="color:green;">입학년도 (2자리 숫자)</span></label>
-						<input id="admissionyear" type="admissionyear" class="form-control"  value="{{ Auth::user()->admissionyear }}" disabled>
-						 @if ($errors->has('admissionyear'))
-							<span class="help-block">
-								{{ $errors->first('admissionyear') }}
-							</span>
-						@endif
-					</div>
-				</div>
-				
+				</div>	
 				
 				<div class="form-group">
 					<div class="col-md-12">
@@ -81,5 +144,4 @@
 			</form>
 		</div>
 	</div>
-</div>
 @endsection

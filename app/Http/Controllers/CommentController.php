@@ -40,7 +40,7 @@ class CommentController extends Controller
             'userid' => Auth::user()->userid,
             'content' => trim($request->content),
             'frontcomment' => 0, // 0은 앞 댓글이 없다는 뜻임 (메인 댓글)
-			'anonymous' => $request->anonymous,
+			'anonymous' => $request->anonymous ? 1 : 0,
         ]);
 		
 		$type = Board::where('id',$boardid)->first()->boardid;
@@ -67,9 +67,9 @@ class CommentController extends Controller
 	public function modify(Request $request, $commentid){
 		$comment = Comment::where('id', $commentid)->first();
 		// 자신이 작성한 댓글이면
-		if(Auth::user()->userid == $comment->userid){
+		if(Auth::user()->admin == 1 || Auth::user()->userid == $comment->userid){
 			// 해당하는 댓글 id를 찾아 content를 업데이트 한다.
-			Comment::where('id', $commentid)->update(['content' => trim($request->content), 'anonymous' => $request->anonymous]);
+			Comment::where('id', $commentid)->update(['content' => trim($request->content), 'anonymous' => empty($request->anonymous) ? 0 : $request->anonymous]);
 		}
 		return Redirect::back();
 	}
@@ -78,7 +78,8 @@ class CommentController extends Controller
 	public function remove(Request $request, $commentid){
 		$comment = Comment::where('id', $commentid)->first();
 		// 자신이 작성한 댓글이면
-		if(Auth::user()->userid == $comment->userid){
+		if(Auth::user()->admin == 1 || Auth::user()->userid == $comment->userid){
+			Logger::where('command', 'comment')->where('target', $comment->boardid)->delete();
 			$comment->delete();
 			return 'true';
 		}else

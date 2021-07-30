@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Logger;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -63,12 +64,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'userid' => 'required|max:255|unique:users',
+            'userid' => 'required|max:255|unique:users|regex:/^[\w-]*$/',
             'email' => 'required|email|max:255|unique:users',
 			'password' => 'required|min:6|confirmed',
 			'realname' => 'required|max:255',
 			'phone' => 'max:255',
-			'admissionyear' => 'required|numeric|max:99',
+			'admissionyear' => 'required|numeric|max:99|regex:/^[0-9]{2}$/',
         ]);
     }
     /**
@@ -79,6 +80,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Logger::create([
+            'command' => 'register',
+            'target' => $data['userid'],
+            'type' => '',
+            'who' => $data['realname'],
+        ]);
+
         return User::create([
             'userid' => $data['userid'],
             'email' => $data['email'],
@@ -87,5 +95,13 @@ class RegisterController extends Controller
 			'phone' =>  preg_replace('/[^0-9]/','',$data['phone']),
 			'admissionyear' => $data['admissionyear'],
         ]);
+    }
+
+    public function check_id($keyword) {
+        return response()->json(["valid" => !Validator::make(["userid" => $keyword], ["userid" => "required|max:255|unique:users|regex:/^[\w-]*$/"])->fails()]);
+    }
+
+    public function check_email($keyword) {
+        return response()->json(["valid" => !Validator::make(["email" => $keyword], ["email" => "required|email|max:255|unique:users"])->fails()]);
     }
 }

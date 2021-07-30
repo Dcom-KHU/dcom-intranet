@@ -1,0 +1,97 @@
+/*
+@font-face {
+  font-family: Pretendard;
+  src: url(../../fonts/PretendardVariable.woff2) format("woff"),
+    url(../../fonts/PretendardVariable.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(../../fonts/PretendardVariable.woff2) format("woff"),
+    url(../../fonts/PretendardVariable.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 100;
+  font-variation-settings: "wght" 200;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(../../fonts/PretendardVariable.woff2) format("woff"),
+    url(../../fonts/PretendardVariable.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-variation-settings: "wght" 300;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(../../fonts/PretendardVariable.woff2) format("woff"),
+    url(../../fonts/PretendardVariable.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: url(../../fonts/PretendardVariable.woff2) format("woff"),
+    url(../../fonts/PretendardVariable.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+}
+*/
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard";
+  font-weight: 300;
+}
+
+input,
+button {
+  font-family: "Pretendard" !important;
+  font-weight: 300 !important;
+}
+
+body {
+  position: relative;
+}
+
+div,
+input {
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: unset;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+i {
+  font-style: unset;
+}
+
+i.fa {
+  font-family: "FontAwesome";
+}

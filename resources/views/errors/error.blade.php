@@ -1,13 +1,25 @@
-@extends('layouts.app')
-
-@section('content')
-
-
-	<div id="error">
-		404
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@include('layouts.layout-sub')
+	<link rel="stylesheet" href="/css/new/before-login.css">
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-default panel-login">
+			<div class="form-main">
+				<div class="panel-heading">저런!</div>
+				<div class="panel-body">
+					<div class="form-group">
+						페이지를 찾을 수 없거나 오류가 발생했습니다 ㅠㅠ
+					</div>
+					<div class="form-group">
+						<button class="btn btn-success" onclick="history.go(-1);">
+							돌아가기
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div style="text-align: center; color:white;">
-		페이지를 찾을수 없거나 오류가 발생했네요...ㅠ.ㅠ</br>
-		<span id="numberbox">15</span>&nbsp;정태환&nbsp;&nbsp;<i class="fa fa-phone" aria-hidden="true"></i>010-2595-2247
-	</div>
-@endsection
+</div>

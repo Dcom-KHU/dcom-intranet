@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => '등록되지 않은 아이디이거나 비밀번호가 틀립니다.',
+    'failed' => '입력 정보가 올바르지 않거나 승인되지 않았습니다.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

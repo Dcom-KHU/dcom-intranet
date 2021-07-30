@@ -1,0 +1,676 @@
+#wrapper-wrapper {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#wrapper {
+  position: relative;
+  padding-left: 220px;
+  background-color: #f8f9fc;
+  width: 100%;
+  height: 100%;
+}
+
+#sidebar-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+}
+
+#content-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex: 1 0 auto;
+  padding: 20px;
+}
+
+#topnav {
+  min-height: 70px;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  background-color: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#footer {
+  padding: 30px 0;
+  text-align: center;
+  color: #858796;
+  font-weight: 300;
+  background-color: #fff;
+  font-size: 0.9em;
+}
+
+.card-section-divider {
+  display: flex;
+  margin: 0 -10px 0 -10px;
+}
+
+.card-section-divider .card-section {
+  flex: 0 1 50%;
+  margin: 0 10px 20px 10px;
+  overflow-x: hidden;
+}
+
+.card-section {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #e3e6f0;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  margin-bottom: 20px;
+}
+
+.card-section .card-header {
+  color: #4e73df;
+  padding: 20px;
+  font-weight: 700;
+  background-color: #f8f9fc;
+  border-bottom: 1px solid #e3e6f0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-section .card-content {
+  padding: 20px;
+}
+
+.card-section .card-content ul.content-list {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+
+.card-section .card-content ul.content-list li {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  align-items: center;
+}
+
+.card-section .card-content ul.content-list li .list-long {
+  overflow-x: hidden;
+}
+
+.card-section .card-content ul.content-list li .list-long > a {
+  display: block;
+}
+
+.card-section .card-content ul.content-list li .list-long > a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-section .card-content ul.content-list li .list-long a.inner-anchor {
+  white-space: normal;
+  display: inline;
+  color: #4e73df;
+}
+
+.card-section .card-content ul.content-list li .list-long {
+  flex: 1 0 0;
+}
+
+.card-section .card-content ul.content-list li .list-author {
+  text-align: right;
+  width: 80px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.card-section .card-content ul.content-list li .list-author.list-professor {
+  width: 120px;
+}
+
+.card-section .card-content ul.content-list li .list-date {
+  width: 80px;
+  font-size: 0.8em;
+  text-align: right;
+}
+
+.card-section .card-content ul.content-list li .list-breakline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#topnav > ul.right-menu {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100%;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#topnav > ul.right-menu > li {
+  padding: 0 10px;
+  font-size: 0.9em;
+  height: 100%;
+}
+
+#topnav > ul.right-menu > li > a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #858796;
+  text-decoration: none;
+  font-weight: 300;
+  align-items: center;
+}
+
+#topnav > ul.right-menu > li > a img {
+  vertical-align: middle;
+}
+
+#topnav > ul.right-menu > li > a > img.profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+#topnav .open-sidenav-wrapper {
+  padding: 20px;
+}
+
+#btn-open-sidenav {
+  padding: 10px;
+  border: 0;
+  background: none;
+  font-size: 18px;
+  color: #4e73df;
+}
+
+.numberbox {
+  display: inline-block;
+  padding: 2px;
+  background-color: #ddd;
+  color: #000;
+  font-size: 0.9em;
+  margin-right: 5px;
+  font-weight: 300;
+}
+
+.dropdown-toggle {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  width: auto;
+  margin-top: 5px;
+  right: 5px;
+  padding: 5px 0;
+  background-color: #fff;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  border-radius: 5px;
+  font-weight: 300;
+  display: none;
+}
+
+.dropdown-menu li {
+  border-bottom: 1px solid #eaecf4;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f8f9fc;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: 0;
+}
+
+.dropdown-menu li a {
+  padding: 10px 30px;
+  display: block;
+  color: #3a3b45;
+}
+
+.dropdown-menu li a:hover {
+  text-decoration: none;
+}
+
+#sidebar-wrapper .sidebar-header {
+  display: block;
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#sidebar-wrapper .sidebar-header i {
+  margin-right: 5px;
+}
+
+#sidebar-wrapper .sidebar-header:hover {
+  text-decoration: unset;
+}
+
+#sidebar-wrapper .sidebar-nav li a {
+  display: flex;
+  padding: 15px;
+  flex-direction: row;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9em;
+  align-items: center;
+}
+
+#sidebar-wrapper .sidebar-nav li a:hover {
+  text-decoration: unset;
+  color: rgba(255, 255, 255, 1);
+}
+
+#sidebar-wrapper .sidebar-nav li a i {
+  width: 30px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.3);
+}
+#sidebar-wrapper .sidebar-nav li a:hover i {
+  color: rgba(255, 255, 255, 1);
+}
+
+#sidebar-wrapper .sidebar-nav li .waiting-count {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 0.8em;
+  min-width: 13px;
+  padding: 0 2px;
+  height: 17px;
+  line-height: 17px;
+  text-align: center;
+  background-color: #ea80fc;
+  border-radius: 10px;
+}
+
+.card-section .card-content .round-form {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.card-section .card-content .round-form .form-group {
+  padding: 0 5px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.card-section .card-content .round-form input[type="text"],
+.card-section .card-content .round-form input[type="email"],
+.card-section .card-content .round-form input[type="number"],
+.card-section .card-content .round-form input[type="password"] {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid #d1c9e2;
+  border-radius: 50px;
+}
+.card-section .card-content .round-form input:disabled,
+.card-section .card-content .round-form input:read-only {
+  background-color: rgb(223, 225, 233);
+}
+.card-section .card-content .round-form .btn {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  color: #fff;
+  border: 0;
+  border-radius: 50px;
+  font-size: 13.3333px;
+  cursor: pointer;
+}
+.card-section .card-content .round-form .btn-success {
+  background-color: #4e73df;
+}
+.card-section .card-content .round-form .btn-success:hover {
+  background-color: #4363c2;
+}
+.half-card {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.card-section .card-content ul.content-list.board-list {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0;
+}
+.card-section .card-content ul.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.card-section .card-content ul.pagination li {
+  padding: 0 3px;
+}
+.card-section .card-content ul.pagination li a {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #eee;
+  color: #959595;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+.card-section .card-content ul.pagination li a:hover {
+  text-decoration: none;
+  background-color: #f4f4f4;
+}
+.card-section .card-content ul.pagination li.active a {
+  background-color: #3a8afd;
+  border: 1px solid #3a8afd;
+  color: #fff;
+}
+.card-section .card-content > .buttons {
+  margin-top: 1rem;
+  text-align: right;
+}
+.card-section .card-content .btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+.card-section .card-content .btn-primary {
+  background-color: #3a8afd;
+}
+.card-section .card-content .btn-primary:hover {
+  background-color: #4e73df;
+  text-decoration: none;
+}
+.card-section .card-content .btn-success {
+  background-color: #90a4ae;
+}
+.card-section .card-content .btn-success:hover {
+  background-color: #78909c;
+  text-decoration: none;
+}
+.card-section .card-content .btn-danger {
+  background-color: #e26a74;
+}
+.card-section .card-content .btn-danger:hover {
+  background-color: #d13f4a;
+  text-decoration: none;
+}
+.card-section .card-content > .search-form {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  flex-direction: row;
+}
+.card-section .card-content > .search-form > select {
+  height: 33px;
+  border: 1px solid #b0bec5;
+  border-radius: 5px;
+  width: 90px;
+  color: #555;
+}
+.card-section .card-content > .search-form > input,
+.card-section .card-content > .search-form > #search-group > input {
+  height: 33px;
+  border: 1px solid #b0bec5;
+  border-radius: 5px;
+  padding: 0 7px;
+  margin: 0 5px;
+  width: 200px;
+}
+.card-section .card-content > .search-form > .btn {
+  width: 60px;
+}
+.card-section .card-content .dropzone {
+  min-height: unset;
+}
+.write-form .input-title {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #00000032;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.write-form .input-title#input-subject {
+  margin-bottom: 0.5rem;
+}
+.write-form .summernote-wrapper {
+  margin-bottom: 1rem;
+}
+.write-form .summernote-wrapper .note-editable {
+  font-family: "Pretendard";
+}
+.write-form .dropzone {
+  margin-bottom: 1rem;
+  border: 1px dashed #00000032;
+  border-radius: 4px;
+}
+.write-form .dropzone.dz-drag-hover {
+  border: 1px solid #e26a74;
+}
+.write-form .dropzone .dz-message {
+  opacity: 0.7;
+}
+.write-form .dropzone.dz-drag-hover .dz-message {
+  opacity: 1;
+}
+.write-form .options {
+  display: flex;
+  justify-content: space-between;
+}
+.card-section.board .card-content .content-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.card-section.board .card-content .content-options .date {
+  font-size: 0.9em;
+  color: #888;
+}
+.card-section.board .card-content .buttons {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.card-section.board .card-content .board-content {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+.card-section.board .card-content .board-content * {
+  max-width: 100%;
+}
+.card-section.board .card-content .board-content a {
+  color: #4e73df;
+  text-decoration: underline;
+}
+.card-section.board .card-content .comment-wrapper {
+  margin-top: 3rem;
+}
+.card-section.board .card-content .comment {
+  margin-top: 1rem;
+  border: 1px solid #00000020;
+  border-radius: 4px;
+  padding: 15px;
+}
+.card-section.board .card-content .comment .btn {
+  padding: 6px 12px;
+}
+.card-section.board .card-content .comment .content-options {
+  margin-bottom: 0.5rem;
+}
+.card-section.board .card-content .comment .board-content {
+  margin-bottom: 0;
+}
+.card-section.board .card-content .comment .buttons {
+  text-align: right;
+  margin-bottom: 0;
+}
+.card-section.board .card-content .comment.modify > .buttons {
+  display: none;
+}
+.card-section.board .card-content .comment.modify .board-content {
+  display: none;
+}
+.card-section.board .card-content .comment .write-form {
+  display: none;
+}
+.card-section.board .card-content .comment.modify .write-form {
+  display: block;
+  margin-top: 1rem;
+}
+.write-form .form-group {
+  position: relative;
+}
+.write-form .form-group #input-subject-helper,
+.write-form .form-group #input-professor-helper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin-top: -0.2rem;
+  padding: 0 5px;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.write-form .form-group #input-professor-helper {
+  margin-top: -0.7rem;
+}
+.write-form .form-group #input-subject-helper li,
+.write-form .form-group #input-professor-helper li {
+  padding: 8px 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.write-form .form-group #input-subject-helper li.active,
+.write-form .form-group #input-professor-helper li.active {
+  background-color: #eee;
+}
+.tooltip {
+  white-space: pre-line;
+  position: absolute !important;
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #00000015;
+  border-radius: 10px;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  font-size: 0.9em;
+}
+@media (min-width: 1200px) {
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+}
+@media (min-width: 800px) and (max-width: 1199px) {
+  #wrapper {
+    padding-left: 180px;
+  }
+  #sidebar-wrapper {
+    width: 180px;
+  }
+  .show-mobile {
+    display: none;
+  }
+  .hide-mobile {
+    display: block;
+  }
+  .card-section-divider {
+    display: block;
+    margin: 0px;
+  }
+  .card-section-divider .card-section {
+    flex: unset;
+    margin: 0 0 20px 0;
+  }
+}
+@media (max-width: 799px) {
+  #wrapper {
+    padding-left: 0;
+    transition: transform 0.5s;
+  }
+  #wrapper.sidenav-open {
+    transform: translate(220px);
+  }
+  #sidebar-wrapper {
+    left: -220px;
+  }
+  .show-mobile {
+    display: block;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .card-section .card-content ul.content-list {
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+  .card-section .card-content ul.content-list li {
+    display: block;
+    padding: 10px 5px;
+  }
+  .card-section .card-content ul.content-list li .list-long {
+    margin-bottom: 7px;
+  }
+  .card-section .card-content ul.content-list li .list-author {
+    font-size: 0.9em;
+    text-align: left;
+    width: auto;
+    margin-right: 10px;
+  }
+  .card-section .card-content ul.content-list li .list-author.list-professor {
+    width: auto;
+  }
+  .card-section .card-content ul.content-list li .list-date {
+    text-align: left;
+  }
+  .half-card {
+    width: 100%;
+  }
+  .card-section-divider {
+    display: block;
+    margin: 0px;
+  }
+  .card-section-divider .card-section {
+    flex: unset;
+    margin: 0 0 20px 0;
+  }
+  .card-section .card-content > .search-form {
+    display: block;
+    position: relative;
+    padding: 0 70px 0 90px;
+  }
+  .card-section .card-content > .search-form > select {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .card-section .card-content > .search-form > input,
+  .card-section .card-content > .search-form > #search-group > input {
+    width: 100%;
+  }
+  .card-section .card-content > .search-form > .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

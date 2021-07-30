@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::get('/user/id/{keyword}', 'Auth\RegisterController@check_id');
+Route::get('/user/email/{keyword}', 'Auth\RegisterController@check_email');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/jokbo/subject/{keyword}', 'BoardController@jokbo_subject');
+    Route::get('/jokbo/professor/{keyword}', 'BoardController@jokbo_professor');
+    Route::get('/jokbo/title/{keyword}', 'BoardController@jokbo_title');
+});

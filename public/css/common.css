@@ -1,0 +1,31 @@
+html,body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: scroll; /* Siderbar 오픈 시 x축의 overflow를 막아줌 */
+}
+
+body {
+	/* 모바일 크롬 웹브라우저의 오버플로우를 막기 위해서 */
+	position: relative
+}
+
+body { 
+	//background: url('/image/background.jpg') no-repeat center center fixed;
+	background: url('/image/new_background.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#rotate{
+  -webkit-transform: rotate(180deg); 
+  -moz-transform: rotate(180deg); 
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+
+.clear{display:block !important;width:100% !important;height:0 !important;clear:both !important;float:none !important}

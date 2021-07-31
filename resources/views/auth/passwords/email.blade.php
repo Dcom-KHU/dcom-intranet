@@ -11,11 +11,15 @@
 				<div class="panel-heading">비밀번호 재설정</div>
 				<div class="panel-body">
 					@if (session('status'))
-						<div class="alert alert-success">
+						<div class="form-group alert alert-success">
 							{{ session('status') }}
 						</div>
-					@endif
-					
+						<div class="form-group">
+							<div class="col-md-12">
+								<a class="btn btn-success" href="{{ url('/') }}">돌아가기</a>
+							</div>
+						</div>
+					@else					
 					<div class="form-group">
 						메일이 전송되는데 다소 시간이 소요될 수 있습니다.
 					</div>
@@ -47,6 +51,7 @@
 							</div>
 						</div>
 					</form>
+					@endif
 				</div>
 			</div>
 		</div>
